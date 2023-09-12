@@ -11,7 +11,7 @@ const WRITE_FILE_OPTIONS = {
   flag: "w+",
 };
 
-const SOLUTION_FILENAME = "solution_%d.in";
+const SOLUTION_FILENAME = "solution_%d.out";
 
 const SOLUTION_PATH = "solution";
 
