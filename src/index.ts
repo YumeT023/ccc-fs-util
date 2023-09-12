@@ -35,10 +35,16 @@ export function makeSolutionFilename(index: number) {
 }
 
 export function writeSolutionsToDirectory(solutions: Array<string | number>, directory: string) {
+  const _directory = path.resolve(directory, SOLUTION_PATH);
+
+  // create solution dir if non-existent
+  if (!fs.existsSync(_directory)) {
+    fs.mkdirSync(_directory);
+  }
+
   solutions.forEach((solution, index) => {
     const filepath = path.resolve(
-      directory,
-      SOLUTION_PATH,
+      _directory,
       makeSolutionFilename(index + 1 /* Adding 1 to account the leading zero */)
     );
     fs.writeFileSync(filepath, String(solution), WRITE_FILE_OPTIONS);
