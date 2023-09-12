@@ -6,6 +6,10 @@
   "types": "dist/index.d.ts",
   "repository": "https://github.com/YumeT023/fs-ccc-util",
   "author": "yumii.saiko <yumii.saiko@gmail.com>",
+  "scripts": {
+    "format": "prettier --ignore-path .gitignore --write \\\"src/**/*.{js,ts,tsx}\\\" \\\"./**/*.{json,yml,yaml}\\\"",
+    "test": "jest"
+  },
   "license": "MIT",
   "private": true,
   "devDependencies": {
