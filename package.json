@@ -1,17 +1,21 @@
 {
-  "name": "fs-ccc-util",
-  "version": "0.0.0-PLACEHOLDER",
+  "name": "@yumii.saiko/ccc-fs-util",
+  "version": "0.0.1",
   "description": "FS utilities for the cloudflight coding contest",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "repository": "https://github.com/YumeT023/fs-ccc-util",
+  "homepage": "https://github.com/YumeT023/ccc-fs-util#readme",
+  "repository": "https://github.com/YumeT023/ccc-fs-util/tree/main",
   "author": "yumii.saiko <yumii.saiko@gmail.com>",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "format": "prettier --ignore-path .gitignore --write \\\"src/**/*.{js,ts,tsx}\\\" \\\"./**/*.{json,yml,yaml}\\\"",
-    "test": "jest"
+    "test": "jest",
+    "build": "tsc -p tsconfig.json"
   },
   "license": "MIT",
-  "private": true,
   "devDependencies": {
     "@types/jest": "^29.5.4",
     "@types/node": "^16.18.0",
