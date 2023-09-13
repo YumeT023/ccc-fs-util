@@ -1,8 +1,8 @@
 # FS CCC UTILS
 
-node.js fs utilities for the cloudFlight coding contest
+node.js fs utilities for the cloudFlight coding contest, you can use either js or ts
 
-### Usage
+## Usage note
 
 Install it using your package manager (using npm)
 
@@ -34,7 +34,7 @@ function doMagicToGetTheSolution(input: string) {
   // do some magic ✨ ...
 }
 
-const outputs = inputs.map(doMagicToGetTheSolution);
+const outputs = inputs.map(doMagicToGetTheSolution); // apply the magic to each input
 writeSolutionsToDirectory(outputs, levelDirectory);
 ```
 
