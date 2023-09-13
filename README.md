@@ -65,3 +65,7 @@ After these steps, you should have the following tree:
 just submit these solutions in the file inputs and that's it
 
 ![image](https://github.com/YumeT023/ccc-fs-util/assets/96466759/4e48b9ac-df52-4e45-96b7-5b1c5d14de93)
+
+## Troubleshooting
+
+- **No such file or directory**: Create the _solution_ directory ahead of time

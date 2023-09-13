@@ -1,6 +1,6 @@
 {
   "name": "@yumii.saiko/ccc-fs-util",
-  "version": "0.0.5",
+  "version": "0.0.8",
   "description": "FS utilities for the cloudflight coding contest",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
