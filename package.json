@@ -1,6 +1,6 @@
 {
   "name": "@yumii.saiko/ccc-fs-util",
-  "version": "1.0.2",
+  "version": "1.0.0",
   "description": "FS utilities for the cloudflight coding contest",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -16,8 +16,8 @@
     "access": "public"
   },
   "scripts": {
-    "format": "prettier .",
-    "format:check": "prettier .",
+    "format": "prettier -w .",
+    "format:check": "prettier --check .",
     "test": "vitest",
     "build": "tsc -p tsconfig.json"
   },

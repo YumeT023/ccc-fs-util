@@ -36,9 +36,9 @@ import path from "node:path"; // ensure you have node.js installed
 
 const levelDir = path.resolve(__dirname, "HoneyComb");
 
-executeSolutionWithLevel(input => {
+executeSolutionWithLevel((input) => {
   /* your solution ✨, return a string */
-}, levelDir)
+}, levelDir);
 ```
 
 After these steps, you should have the following tree:

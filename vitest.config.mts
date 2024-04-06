@@ -5,6 +5,6 @@ export default defineConfig({
     globals: true,
     sequence: {
       hooks: "list",
-    }
+    },
   },
 });
