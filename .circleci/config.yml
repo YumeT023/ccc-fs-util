@@ -1,0 +1,34 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@5.2.0
+
+jobs:
+  style:
+    executor:
+      name: node/default
+      tag: "18.19.0"
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn
+      - run:
+          name: Check code style
+          command: yarn format:check
+  test:
+    executor:
+      name: node/default
+      tag: "18.19.0"
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn
+      - run:
+          name: Run tests
+          command: yarn test
+
+workflows:
+  ci:
+    jobs:
+      - style
+      - test

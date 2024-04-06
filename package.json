@@ -14,7 +14,8 @@
     "access": "public"
   },
   "scripts": {
-    "format": "prettier --ignore-path .gitignore --write \\\"src/**/*.{js,ts,tsx}\\\" \\\"./**/*.{json,yml,yaml}\\\"",
+    "format": "prettier .",
+    "format:check": "prettier .",
     "test": "vitest",
     "build": "tsc -p tsconfig.json"
   },
