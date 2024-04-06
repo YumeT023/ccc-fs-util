@@ -46,8 +46,8 @@ After these steps, you should have the following tree:
 ```
 └───HoneyComb
     └─── solution
-        └─── solution_1.out
-        └─── solution_2.out
+        └─── level_1.out
+        └─── level_2.out
     └─── level_1.in
     └─── level_2.in
     └─── level_1.example.in
