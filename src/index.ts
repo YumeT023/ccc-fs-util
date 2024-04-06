@@ -1,52 +1,40 @@
-import fs from "node:fs";
-import path from "node:path";
-import util from "node:util";
+import {existsSync, mkdirSync, writeFileSync} from "node:fs";
+import {join, parse, resolve} from "node:path";
+import {Input, Output, ResolveFn} from "./types";
+import {walkFs, isExample, readFile} from "./util";
 
-const READ_FILE_OPTIONS: {encoding: BufferEncoding} = {
-  encoding: "utf8",
-};
-
-const WRITE_FILE_OPTIONS = {
-  ...READ_FILE_OPTIONS,
-  flag: "w+",
-};
-
-const SOLUTION_FILENAME = "solution_%d.out";
-
-const SOLUTION_PATH = "solution";
-
-function getNonExample(files: string[]) {
-  return files.filter((file) => !file.includes("example"));
-}
-
-export function readInputsFromDirectory(directory: string) {
-  const files: string[] = fs.readdirSync(directory);
-  return getNonExample(files).reduce<string[]>((prev, file) => {
-    const name = path.resolve(directory, file);
-    if (fs.statSync(name).isFile()) {
-      return [...prev, fs.readFileSync(name, READ_FILE_OPTIONS).trimEnd()];
-    }
-    return prev;
-  }, []);
-}
-
-export function makeSolutionFilename(index: number) {
-  return util.format(SOLUTION_FILENAME, index);
-}
-
-export function writeSolutionsToDirectory(solutions: Array<string | number>, directory: string) {
-  const _directory = path.resolve(directory, SOLUTION_PATH);
-
-  // create solution dir if non-existent
-  if (!fs.existsSync(_directory)) {
-    fs.mkdirSync(_directory);
-  }
-
-  solutions.forEach((solution, index) => {
-    const filepath = path.resolve(
-      _directory,
-      makeSolutionFilename(index + 1 /* Adding 1 to account the leading zero */)
-    );
-    fs.writeFileSync(filepath, String(solution), WRITE_FILE_OPTIONS);
+export function executeSolutionWithLevel(resolve: ResolveFn, levelDir: string) {
+  createSolutionDir(levelDir);
+  getInputs(levelDir).forEach((input) => {
+    writeSolution(input, resolve(input.raw));
   });
+}
+
+function getInputs(directory: string) {
+  const inputs: Input[] = [];
+  walkFs(directory, (path, file, dir) => {
+    if (!dir.includes("solution") && !isExample(file)) {
+      const input: Input = {
+        name: parse(file).name,
+        file,
+        path,
+        dir,
+        raw: readFile(path).trim(),
+      };
+      inputs.push(input);
+    }
+  });
+  return inputs;
+}
+
+function createSolutionDir(levelDir: string) {
+  const solutionDir = join(levelDir, "solution");
+  if (!existsSync(solutionDir)) {
+    mkdirSync(solutionDir);
+  }
+}
+
+function writeSolution(input: Input, output: Output) {
+  const path = join(input.dir, "solution", input.file.replace("in", "out"));
+  writeFileSync(path, output, {encoding: "utf8", flag: "w+"});
 }
