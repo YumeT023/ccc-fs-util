@@ -1,5 +1,5 @@
 import {existsSync, mkdirSync, writeFileSync} from "node:fs";
-import {join, parse, resolve} from "node:path";
+import {join, parse} from "node:path";
 import {Input, Output, ResolveFn} from "./types";
 import {walkFs, isExample, readFile} from "./util";
 
