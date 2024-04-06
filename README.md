@@ -1,6 +1,6 @@
-# FS CCC UTILS
+# Unofficial Cloudflight coding contest utilities
 
-node.js fs utilities for the cloudFlight coding contest, you can use either js or ts
+node.js utilities for the cloudFlight coding contest, you can use either js or ts
 
 ## Usage note
 
