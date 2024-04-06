@@ -1,6 +1,6 @@
 {
   "name": "@yumii.saiko/ccc-fs-util",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "FS utilities for the cloudflight coding contest",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -8,7 +8,9 @@
   "repository": "https://github.com/YumeT023/ccc-fs-util/tree/main",
   "author": "yumii.saiko <yumii.saiko@gmail.com>",
   "files": [
-    "dist"
+    "dist",
+    "package.json",
+    "README.md"
   ],
   "publishConfig": {
     "access": "public"
